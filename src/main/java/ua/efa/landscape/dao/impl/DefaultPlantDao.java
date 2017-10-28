@@ -86,15 +86,15 @@ public class DefaultPlantDao implements PlantDao {
     private List<Predicate> getPredicates(Map<String, Object> params, CriteriaBuilder builder, Root<Plant> root) {
         List<Predicate> predicates = new ArrayList<>();
 
-        Optional.ofNullable(equalPredicate(builder, (String) params.get("name"), root.get(Plant_.name))).ifPresent(predicates::add);
-        Optional.ofNullable(equalPredicate(builder, (String) params.get("color"), root.get(Plant_.color))).ifPresent(predicates::add);
+        Optional.ofNullable(equalPredicate(builder, params.get("name"), root.get(Plant_.name))).ifPresent(predicates::add);
+        Optional.ofNullable(equalPredicate(builder, params.get("color"), root.get(Plant_.color))).ifPresent(predicates::add);
         Optional.ofNullable(betweenPredicate(builder, root.get(Plant_.height), (Double) params.get("heightFrom"), (Double) params.get("heightTo"))).ifPresent(predicates::add);
         Optional.ofNullable(betweenPredicate(builder, root.get(Plant_.price), (Double) params.get("priceFrom"), (Double) params.get("priceTo"))).ifPresent(predicates::add);
 
         return predicates;
     }
 
-    private Predicate equalPredicate(CriteriaBuilder builder, String param, Path<String> path) {
+    private Predicate equalPredicate(CriteriaBuilder builder, Object param, Path path) {
         Predicate predicate = null;
         if (param != null) {
             predicate = builder.equal(path, param);

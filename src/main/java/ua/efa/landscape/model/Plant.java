@@ -2,6 +2,8 @@ package ua.efa.landscape.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +24,8 @@ public class Plant {
     @Column
     private double price;
 
-    @Column
-    private String color;
+    @Enumerated(EnumType.STRING)
+    private ColorEnum color;
 
     @Column
     private String imgUrl;
@@ -63,11 +65,11 @@ public class Plant {
         this.price = price;
     }
 
-    public String getColor() {
+    public ColorEnum getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(ColorEnum color) {
         this.color = color;
     }
 

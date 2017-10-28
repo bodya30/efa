@@ -1790,8 +1790,12 @@ input[type=number]::-webkit-outer-spin-button {
 		color: #fff;
 	}
 
+	option{
+		background-color: #162e30;
+	}
+
 	a {
-		color: #F64747;
+		color: #162e30;
 	}
 
 	strong, b {
@@ -2033,7 +2037,7 @@ input[type=number]::-webkit-outer-spin-button {
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #F64747;
+			background-color: #162e30;
 			color: #ffffff !important;
 		}
 
@@ -2042,7 +2046,7 @@ input[type=number]::-webkit-outer-spin-button {
 			input[type="button"].special:hover,
 			button.special:hover,
 			.button.special:hover {
-				background-color: #f75f5f;
+				background-color: #162e30;
 			}
 
 			input[type="submit"].special:active,
@@ -2050,7 +2054,7 @@ input[type=number]::-webkit-outer-spin-button {
 			input[type="button"].special:active,
 			button.special:active,
 			.button.special:active {
-				background-color: #f52f2f;
+				background-color: #162e30;
 			}
 
 /* Flex */
@@ -2419,8 +2423,8 @@ input[type=number]::-webkit-outer-spin-button {
 		input[type="number"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #F64747;
-			box-shadow: 0 0 0 1px #F64747;
+			border-color: #162e30;
+			box-shadow: 0 0 0 1px #162e30;
 		}
 
 	.select-wrapper:before {
@@ -2440,15 +2444,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 	input[type="checkbox"]:checked + label:before,
 	input[type="radio"]:checked + label:before {
-		background-color: #F64747;
-		border-color: #F64747;
+		background-color: #162e30;
+		border-color: #162e30;
 		color: #ffffff;
 	}
 
 	input[type="checkbox"]:focus + label:before,
 	input[type="radio"]:focus + label:before {
-		border-color: #F64747;
-		box-shadow: 0 0 0 1px #F64747;
+		border-color: #162e30;
+		box-shadow: 0 0 0 1px #162e30;
 	}
 
 	::-webkit-input-placeholder {
@@ -2850,7 +2854,7 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 
 		.wrapper.style1 {
-			background-color: #F64747;
+			background-color: #162e30;
 			color: #fdd1d1;
 		}
 
@@ -2948,7 +2952,7 @@ input[type=number]::-webkit-outer-spin-button {
 				.wrapper.style1 button.special,
 				.wrapper.style1 .button.special {
 					background-color: #ffffff;
-					color: #F64747 !important;
+					color: #162e30 !important;
 				}
 
 			.wrapper.style1 label {
@@ -2992,7 +2996,7 @@ input[type=number]::-webkit-outer-spin-button {
 			.wrapper.style1 input[type="radio"]:checked + label:before {
 				background-color: #ffffff;
 				border-color: #ffffff;
-				color: #F64747;
+				color: #162e30;
 			}
 
 			.wrapper.style1 input[type="checkbox"]:focus + label:before,
@@ -3063,7 +3067,7 @@ input[type=number]::-webkit-outer-spin-button {
 			}
 
 			.wrapper.style2 a {
-				color: #F64747;
+				color: #162e30;
 			}
 
 			.wrapper.style2 strong, .wrapper.style2 b {
@@ -3135,7 +3139,7 @@ input[type=number]::-webkit-outer-spin-button {
 				.wrapper.style2 input[type="button"].special,
 				.wrapper.style2 button.special,
 				.wrapper.style2 .button.special {
-					background-color: #F64747;
+					background-color: #162e30;
 					color: #ffffff !important;
 				}
 
@@ -3173,8 +3177,8 @@ input[type=number]::-webkit-outer-spin-button {
 				.wrapper.style2 input[type="number"]:focus,
 				.wrapper.style2 select:focus,
 				.wrapper.style2 textarea:focus {
-					border-color: #F64747;
-					box-shadow: 0 0 0 1px #F64747;
+					border-color: #162e30;
+					box-shadow: 0 0 0 1px #162e30;
 				}
 
 			.wrapper.style2 .select-wrapper:before {
@@ -3194,15 +3198,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 			.wrapper.style2 input[type="checkbox"]:checked + label:before,
 			.wrapper.style2 input[type="radio"]:checked + label:before {
-				background-color: #F64747;
-				border-color: #F64747;
+				background-color: #162e30;
+				border-color: #162e30;
 				color: #ffffff;
 			}
 
 			.wrapper.style2 input[type="checkbox"]:focus + label:before,
 			.wrapper.style2 input[type="radio"]:focus + label:before {
-				border-color: #F64747;
-				box-shadow: 0 0 0 1px #F64747;
+				border-color: #162e30;
+				box-shadow: 0 0 0 1px #162e30;
 			}
 
 			.wrapper.style2 ::-webkit-input-placeholder {
@@ -3344,7 +3348,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 		#header.alt {
 			top: 0;
-			background: #F64747;
+			background: #2c5d61;
 		}
 
 		#header .logo {
@@ -4185,10 +4189,10 @@ input[type=number]::-webkit-outer-spin-button {
 /* Footer */
 
 	#footer {
-		background-color: #F64747;
+		background-color: #162e30;
 		color: #fdd1d1;
 		padding: 6em 0 4em 0;
-		background: #F64747;
+		background: #162e30;
 	}
 
 		#footer input, #footer select, #footer textarea {
@@ -4285,7 +4289,7 @@ input[type=number]::-webkit-outer-spin-button {
 			#footer button.special,
 			#footer .button.special {
 				background-color: #ffffff;
-				color: #F64747 !important;
+				color: #162e30 !important;
 			}
 
 		#footer label {
@@ -4329,7 +4333,7 @@ input[type=number]::-webkit-outer-spin-button {
 		#footer input[type="radio"]:checked + label:before {
 			background-color: #ffffff;
 			border-color: #ffffff;
-			color: #F64747;
+			color: #162e30;
 		}
 
 		#footer input[type="checkbox"]:focus + label:before,

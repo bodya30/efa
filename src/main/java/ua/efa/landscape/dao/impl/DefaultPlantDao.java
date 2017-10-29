@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import ua.efa.landscape.dao.PlantDao;
+import ua.efa.landscape.data.PlantPageableData;
 import ua.efa.landscape.model.Plant;
 import ua.efa.landscape.model.Plant_;
 
@@ -24,9 +25,6 @@ import java.util.Optional;
 @Transactional
 public class DefaultPlantDao implements PlantDao {
 
-    @Value("${db.pagination.size}")
-    private int pageSize;
-
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -40,15 +38,24 @@ public class DefaultPlantDao implements PlantDao {
     }
 
     @Override
-    public List<Plant> getAllPlantsPaginated(int pageNumber) {
+    public PlantPageableData getAllPlantsPaginated(PlantPageableData pageableData) {
+        int pageSize = pageableData.getPageSize();
         Session session = getCurrentSession();
         CriteriaQuery<Plant> criteriaQuery = session.getCriteriaBuilder().createQuery(Plant.class);
         Root<Plant> root = criteriaQuery.from(Plant.class);
         CriteriaQuery<Plant> query = criteriaQuery.select(root);
-        return session.createQuery(query)
-                .setFirstResult(pageNumber * pageSize)
+        List<Plant> plants = session.createQuery(query)
+                .setFirstResult(pageableData.getPageNumber() * pageSize)
                 .setMaxResults(pageSize)
                 .list();
+        long pageCount = getTotalPageCount(query);
+        populatePageableData(pageableData, plants, pageCount);
+        return pageableData;
+    }
+
+    private void populatePageableData(PlantPageableData pageableData, List<Plant> plants, long pageCount) {
+        pageableData.setPlantsInPage(plants);
+        pageableData.setTotalPageCount(pageCount);
     }
 
     @Override
@@ -70,17 +77,32 @@ public class DefaultPlantDao implements PlantDao {
     }
 
     @Override
-    public List<Plant> getPlantsByCriteriasPaginated(Map<String, Object> params, int pageNumber) {
+    public PlantPageableData getPlantsByCriteriasPaginated(Map<String, Object> params, PlantPageableData pageableData) {
+        int pageSize = pageableData.getPageSize();
         Session session = getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery criteria = builder.createQuery();
         Root<Plant> root = criteria.from(Plant.class);
         List<Predicate> predicates = getPredicates(params, builder, root);
         CriteriaQuery<Plant> query = criteria.select(root).where(predicates.toArray(new Predicate[]{}));
-        return session.createQuery(query)
-                .setFirstResult(pageNumber * pageSize)
+        List<Plant> plants = session.createQuery(query)
+                .setFirstResult(pageableData.getPageNumber() * pageSize)
                 .setMaxResults(pageSize)
                 .getResultList();
+        long pageCount = getTotalPageCount(query, predicates.toArray(new Predicate[]{}));
+        populatePageableData(pageableData, plants, pageCount);
+        return pageableData;
+    }
+
+    private long getTotalPageCount(CriteriaQuery query, Predicate ... predicates){
+        Session session = getCurrentSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Long> countQuery = builder.createQuery(Long.class);
+        countQuery.select(builder.count(query.from(Plant.class)));
+        if (predicates.length > 0){
+            countQuery.where(predicates);
+        }
+        return session.createQuery(countQuery).getSingleResult();
     }
 
     private List<Predicate> getPredicates(Map<String, Object> params, CriteriaBuilder builder, Root<Plant> root) {

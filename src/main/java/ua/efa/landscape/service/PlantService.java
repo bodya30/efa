@@ -1,5 +1,6 @@
 package ua.efa.landscape.service;
 
+import ua.efa.landscape.data.PlantPageableData;
 import ua.efa.landscape.model.Plant;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface PlantService {
 
     Plant getPlantById(int id);
 
-    List<Plant> getAllPlantsPaginated(int pageNumber);
+    PlantPageableData getAllPlantsPaginated(PlantPageableData pageableData);
 
     void deletePlantById(int id);
 
@@ -17,5 +18,5 @@ public interface PlantService {
 
     void updatePlant(Plant plant);
 
-    List<Plant> getPlantsByCriteriasPagineted(Map<String, Object> params, int pageNumber);
+    PlantPageableData getPlantsByCriteriasPagineted(Map<String, Object> params, PlantPageableData pageableData);
 }

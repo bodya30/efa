@@ -28,7 +28,7 @@ public class Plant {
     private ColorEnum color;
 
     @Column
-    private String imgUrl;
+    private String img;
 
     public Plant(){
     }
@@ -73,11 +73,11 @@ public class Plant {
         this.color = color;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImg() {
+        return img;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImg(String img) {
+        this.img = img;
     }
 }

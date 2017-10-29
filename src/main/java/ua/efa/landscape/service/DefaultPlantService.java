@@ -3,6 +3,7 @@ package ua.efa.landscape.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.efa.landscape.dao.PlantDao;
+import ua.efa.landscape.data.PlantPageableData;
 import ua.efa.landscape.model.Plant;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class DefaultPlantService implements PlantService {
     }
 
     @Override
-    public List<Plant> getAllPlantsPaginated(int pageNumber) {
-        return plantDao.getAllPlantsPaginated(pageNumber);
+    public PlantPageableData getAllPlantsPaginated(PlantPageableData pageableData) {
+        return plantDao.getAllPlantsPaginated(pageableData);
     }
 
     @Override
@@ -40,7 +41,7 @@ public class DefaultPlantService implements PlantService {
     }
 
     @Override
-    public List<Plant> getPlantsByCriteriasPagineted(Map<String, Object> params, int pageNumber) {
-        return plantDao.getPlantsByCriteriasPaginated(params, pageNumber);
+    public PlantPageableData getPlantsByCriteriasPagineted(Map<String, Object> params, PlantPageableData pageableData) {
+        return plantDao.getPlantsByCriteriasPaginated(params, pageableData);
     }
 }

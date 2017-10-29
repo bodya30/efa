@@ -8,16 +8,16 @@ public class PlantForm {
     private String color;
 
     @Min(value = 0, message = "price.min.error")
-    private double priceFrom;
+    private Double priceFrom;
 
     @Min(value = 0, message = "price.min.error")
-    private double priceTo;
+    private Double priceTo;
 
     @Min(value = 0, message = "height.min.error")
-    private double heightFrom;
+    private Double heightFrom;
 
     @Min(value = 0, message = "height.min.error")
-    private double heightTo;
+    private Double heightTo;
 
     public String getName() {
         return name;
@@ -35,35 +35,35 @@ public class PlantForm {
         this.color = color;
     }
 
-    public double getPriceFrom() {
+    public Double getPriceFrom() {
         return priceFrom;
     }
 
-    public void setPriceFrom(double priceFrom) {
+    public void setPriceFrom(Double priceFrom) {
         this.priceFrom = priceFrom;
     }
 
-    public double getPriceTo() {
+    public Double getPriceTo() {
         return priceTo;
     }
 
-    public void setPriceTo(double priceTo) {
+    public void setPriceTo(Double priceTo) {
         this.priceTo = priceTo;
     }
 
-    public double getHeightFrom() {
+    public Double getHeightFrom() {
         return heightFrom;
     }
 
-    public void setHeightFrom(double heightFrom) {
+    public void setHeightFrom(Double heightFrom) {
         this.heightFrom = heightFrom;
     }
 
-    public double getHeightTo() {
+    public Double getHeightTo() {
         return heightTo;
     }
 
-    public void setHeightTo(double heightTo) {
+    public void setHeightTo(Double heightTo) {
         this.heightTo = heightTo;
     }
 }

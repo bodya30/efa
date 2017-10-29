@@ -27,35 +27,47 @@
                 <p>Enter criteria to find plants</p>
             </header>
             <div class="content">
-                <form:form method="POST" modelAttribute="plantForm">
+                <form:form method="POST" modelAttribute="plantForm" cssClass="js-form">
                     <div class="field">
                         <form:label path="name">Name</form:label>
-                        <form:input path="name" name="name" type="text" placeholder="Name"/></div>
+                        <form:input path="name" name="name" type="text" placeholder="Name"/>
+                        <span class="js-error-name hidden"></span>
+                    </div>
                     <div class="field">
                         <form:label path="color">Color</form:label>
                         <div class="select-wrapper">
                             <form:select path="color" name="color">
+                                <form:option value="" selected="selected">Choose color</form:option>
                                 <c:forEach var="color" items="${colors}">
                                     <form:option value="${color.value}">${color.displayName}</form:option>
                                 </c:forEach>
                             </form:select>
+                            <span class="js-error-color hidden"></span>
                         </div>
                     </div>
                     <div class="field half first">
                         <form:label path="priceFrom">Price from</form:label>
-                        <form:input name="priceFrom" path="priceFrom" type="number" placeholder="Price from"/></div>
+                        <form:input name="priceFrom" path="priceFrom" type="number" placeholder="Price from"/>
+                        <span class="js--error-priceFrom hidden"></span>
+                    </div>
                     <div class="field half">
                         <form:label path="priceTo">Price to</form:label>
-                        <form:input name="priceTo" path="priceTo" type="number" placeholder="Price to"/></div>
+                        <form:input name="priceTo" path="priceTo" type="number" placeholder="Price to"/>
+                        <span class="js-error-priceTo hidden"></span>
+                    </div>
                     <div class="field half first">
                         <form:label path="heightFrom">Height from</form:label>
-                        <form:input name="heightFrom" path="heightFrom" type="number" placeholder="Height from"/></div>
+                        <form:input name="heightFrom" path="heightFrom" type="number" placeholder="Height from"/>
+                        <span class="js-error-heightFrom hidden"></span>
+                    </div>
                     <div class="field half">
                         <form:label path="heightTo">Height to</form:label>
-                        <form:input name="heightTo" path="heightTo" type="number" placeholder="Height to"/></div>
+                        <form:input name="heightTo" path="heightTo" type="number" placeholder="Height to"/>
+                        <span class="js-error-heightTo hidden"></span>
+                    </div>
                     <ul class="actions">
                         <li>
-                            <input value="Submit" class="button alt" type="submit"></li>
+                            <input value="Submit" class="button alt js-submit" type="submit"></li>
                         <li>
                             <input value="Reset" class="button alt" type="reset"></li>
                     </ul>
@@ -68,53 +80,8 @@
 <footer id="footer">
     <div class="inner">
         <h2>Search results</h2>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Color</th>
-                    <th>Height, m</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Item 1</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                    <td>29.99</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 2</td>
-                    <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 3</td>
-                    <td> Morbi faucibus arcu accumsan lorem.</td>
-                    <td>29.99</td>
-                </tr>
-                <tr>
-                    <td>Item 4</td>
-                    <td>Vitae integer tempus condimentum.</td>
-                    <td>19.99</td>
-                </tr>
-                <tr>
-                    <td>Item 5</td>
-                    <td>Ante turpis integer aliquet porttitor.</td>
-                    <td>29.99</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="2"></td>
-                    <td>100.00</td>
-                </tr>
-                </tfoot>
-            </table>
+        <div class="js-table-container">
+
         </div>
     </div>
 </footer>
@@ -125,5 +92,6 @@
 <script src="resources/js/skel.min.js"></script>
 <script src="resources/js/util.js"></script>
 <script src="resources/js/main.js"></script>
+<script src="resources/js/app.js"></script>
 </body>
 </html>

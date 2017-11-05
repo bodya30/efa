@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
+<!DOCTYPE HTML>
 <head>
     <title>Plants DB</title>
     <meta charset="utf-8"/>
@@ -86,7 +87,11 @@
     </div>
 </footer>
 <!-- Scripts -->
-<script src="resources/js/jquery.min.js"></script>
+<%--TODO: fix scripts--%>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
+<script src="resources/js/jquery.twbsPagination.js"></script>
+<script src="resources/js/jquery.twbsPagination.min.js"></script>
 <script src="resources/js/jquery.scrolly.min.js"></script>
 <script src="resources/js/jquery.scrollex.min.js"></script>
 <script src="resources/js/skel.min.js"></script>

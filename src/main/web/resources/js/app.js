@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-    $(document).on("click",".js-submit, .js-page",function(e) {
+    $(document).on("click",".js-submit",function(e) {
         e.preventDefault();
 
-        var pageNumber = getPageNumber(e);
+        var pageNumber = getPageNumber();
 
         $.ajax({
             type: "POST",
@@ -31,18 +31,41 @@ $(document).ready(function() {
                 data: $(".js-form").serialize(),
                 success: function (response) {
                     $(".js-table-container").html(response);
+                    renderPagination();
                 }
             });
         }
 
-        function getPageNumber(e) {
-            var pageNumber = 0;
-            if ($(e.target).is(".js-submit") && $(".js-pagination").length){
-                pageNumber = $(".js-page.active").attr("href");
-            } else if ($(e.target).is(".js-page")){
-                pageNumber = $(e.target).attr("href");
-            }
-            return pageNumber;
+        function getPageNumber() {
+            var pageNumberFieldVal = $("input[name='pageNumber']").val();
+            return  pageNumberFieldVal ? pageNumberFieldVal: 0;
         }
+
+        function renderPagination() {
+            var currpage = parseInt($("input[name='pageNumber']").val()) + 1;
+            var totalpage = parseInt($("input[name='totalPageCount']").val());
+            if (totalpage){
+                $(".js-pagination").twbsPagination({
+                    totalPages: totalpage,
+                    visiblePages: 6,
+                    startPage: currpage,
+                    initiateStartPageClick: false,
+                    first: "&lt;&lt;",
+                    prev: "&lt;",
+                    next: "&gt;",
+                    last: "&gt;&gt;",
+                    paginationClass: "pagination",
+                    onPageClick: function (event, page) {
+                        $("input[name='pageNumber']").val(page-1);
+                        $(".js-submit").trigger("click");
+                    }
+                });
+            }
+        }
+    });
+
+    $(document).on("input change",".js-form input",function(e) {
+        e.preventDefault();
+        $("input[name='pageNumber']").val(0);
     });
 });

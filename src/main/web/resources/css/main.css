@@ -1802,22 +1802,23 @@ input[type=number]::-webkit-outer-spin-button {
 		text-align: center;
 	}
 
-	.pagination {
+	.pagination li{
 		display: inline-block;
 	}
 
 	.pagination a {
 		color: black;
 		float: left;
-		padding: 8px 16px;
+		padding: 2px 6px;
 		text-decoration: none;
-		border-radius: 5px;
+		border: 1px solid #5d6f6f;
+		margin: 0 2px;
+		border-radius: 4px;
 	}
 
-	.pagination a.active {
+	.page-item.active a{
 		background-color: #5ea04b;
 		color: white;
-		border-radius: 5px;
 	}
 
 	.pagination a:hover:not(.active) {
@@ -2585,14 +2586,10 @@ input[type=number]::-webkit-outer-spin-button {
 		}
 
 	ul {
-		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
 	}
 
-		ul li {
-			padding-left: 0.5em;
-		}
 
 		ul.alt {
 			list-style: none;
@@ -2802,7 +2799,7 @@ input[type=number]::-webkit-outer-spin-button {
 		table td {
 			padding: 0.75em 0.75em;
 			white-space: nowrap;
-			width:1;
+			width:1%;
 			vertical-align: middle;
 			text-align: center;
 		}

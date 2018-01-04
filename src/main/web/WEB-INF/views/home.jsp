@@ -85,6 +85,13 @@
 
         </div>
     </div>
+    <div>
+        <a href="#" id="scrollToTop">
+            <svg id="svg1"  viewBox="0 0 60 60" preserveAspectRatio="xMaxYMax">
+                <image href="resources/img/arrow.svg" width="100%" height="100%" />
+            </svg>
+        </a>
+    </div>
 </footer>
 <!-- Scripts -->
 <%--TODO: fix scripts--%>
@@ -97,6 +104,7 @@
 <script src="resources/js/skel.min.js"></script>
 <script src="resources/js/util.js"></script>
 <script src="resources/js/main.js"></script>
-<script src="resources/js/app.js"></script>
+<script src="resources/js/formsubmit.js"></script>
+<script src="resources/js/scrolltop.js"></script>
 </body>
 </html>

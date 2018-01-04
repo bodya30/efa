@@ -4461,3 +4461,14 @@ input[type=number]::-webkit-outer-spin-button {
 			}
 
 		}
+
+#scrollToTop{
+	width:60px;
+	height:60px;
+	padding:10px;
+	background-color: transparent;
+	position:fixed;
+	bottom:1.5em;
+	right:1.5em;
+	display:none;
+}

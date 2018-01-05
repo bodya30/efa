@@ -1,4 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="table-wrapper">
     <c:choose>
@@ -6,11 +8,11 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Color</th>
-                    <th>Height, m</th>
-                    <th>Price</th>
+                    <th><spring:message code="search.results.table.column.image" text="Image"/></th>
+                    <th><spring:message code="search.results.table.column.name" text="Name"/></th>
+                    <th><spring:message code="search.results.table.column.color" text="Color"/></th>
+                    <th><spring:message code="search.results.table.column.height" text="Height, m"/></th>
+                    <th><spring:message code="search.results.table.column.price" text="Price"/></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -31,7 +33,7 @@
             </table>
         </c:when>
         <c:otherwise>
-            <p>No plants found</p>
+            <p><spring:message code="search.results.table.empty" text="No plants found"/></p>
         </c:otherwise>
     </c:choose>
 </div>

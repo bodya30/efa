@@ -7,16 +7,16 @@ public class PlantForm {
     private String name;
     private String color;
 
-    @Min(value = 0, message = "price.min.error")
+    @Min(value = 0, message = "form.field.price.min.error")
     private Double priceFrom;
 
-    @Min(value = 0, message = "price.min.error")
+    @Min(value = 0, message = "form.field.price.min.error")
     private Double priceTo;
 
-    @Min(value = 0, message = "height.min.error")
+    @Min(value = 0, message = "form.field.height.min.error")
     private Double heightFrom;
 
-    @Min(value = 0, message = "height.min.error")
+    @Min(value = 0, message = "form.field.height.min.error")
     private Double heightTo;
 
     public String getName() {

@@ -3,7 +3,7 @@ $(document).ready(function(){
     var scrollButton = $('#scrollToTop');
 
     $(window).scroll(function(){
-        if ($(this).scrollTop() > 100) {
+        if ($(this).scrollTop() > 1000) {
             scrollButton.fadeIn()
         } else {
             scrollButton.fadeOut();

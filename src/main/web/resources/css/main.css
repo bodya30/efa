@@ -4472,3 +4472,12 @@ input[type=number]::-webkit-outer-spin-button {
 	right:1.5em;
 	display:none;
 }
+
+.locale a{
+	color: #FFF;
+	text-decoration: none;
+}
+
+.locale a:active{
+	font-weight: bold;
+}

@@ -2,6 +2,8 @@ package ua.efa.landscape.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,7 @@ import ua.efa.landscape.validation.PlantFormValidationRespponse;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
@@ -34,6 +37,9 @@ public class HomeController {
 
     @Autowired
     private PlantService plantService;
+
+    @Autowired
+    private MessageSource messageSource;
 
     @RequestMapping(method = RequestMethod.GET)
     public String showHomePage(Model model) {
@@ -49,11 +55,16 @@ public class HomeController {
                                                      BindingResult bindingResult) {
         PlantFormValidationRespponse respponse = new PlantFormValidationRespponse();
         if (bindingResult.hasErrors()) {
+            Locale currentLocale = LocaleContextHolder.getLocale();
             Map<String, String> errors = bindingResult.getFieldErrors().stream()
-                    .collect(toMap(FieldError::getField, FieldError::getDefaultMessage));
+                    .collect(toMap(FieldError::getField, error -> getLocalizedErrorMessage(error, currentLocale)));
             respponse.setErrors(errors);
         }
         return respponse;
+    }
+
+    private String getLocalizedErrorMessage(FieldError error, Locale locale){
+        return  messageSource.getMessage(error.getDefaultMessage(), null, locale);
     }
 
     @RequestMapping(value = "/submit/form", method = RequestMethod.POST)

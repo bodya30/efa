@@ -10,15 +10,15 @@ $(document).ready(function() {
             url: "validate/form",
             data: $(".js-form").serialize(),
             success: function (response) {
+                $(".js-form span").html("");
                 if (response.errors != null){
                     $.each(response.errors, function (fieldName, fieldError) {
-                        var selector = ".js-err-" + fieldName;
-                        $(selector).removeClass("hidden");
-                        $(selector + " input").val(fieldError);
-                        $("tbody").html("");
+                        var selector = ".js-error-" + fieldName;
+                        $(selector).html(fieldError);
+                        $(".js-table-container").html("");
                     });
                 } else {
-                    $(".js-form span").addClass("hidden");
+                    $(".js-form span").html("");
                     getPlants(pageNumber);
                 }
             }
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
         function getPageNumber() {
             var pageNumberFieldVal = $("input[name='pageNumber']").val();
-            return  pageNumberFieldVal ? pageNumberFieldVal: 0;
+            return  pageNumberFieldVal ? pageNumberFieldVal : 0;
         }
 
         function renderPagination() {

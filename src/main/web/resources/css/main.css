@@ -2253,6 +2253,7 @@ input[type=number]::-webkit-outer-spin-button {
 			form .field.half {
 				display: inline-block;
 				width: 48%;
+				vertical-align: top;
 			}
 
 				form .field.half.first {

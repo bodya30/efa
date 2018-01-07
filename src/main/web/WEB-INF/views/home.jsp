@@ -40,7 +40,7 @@
                         <spring:message code="form.field.name" text="Name" var="name"/>
                         <form:label path="name">${name}</form:label>
                         <form:input path="name" name="name" type="text" placeholder="${name}"/>
-                        <span class="js-error-name hidden"></span>
+                        <span class="js-error-name"></span>
                     </div>
                     <div class="field">
                         <spring:message code="form.field.color" text="Color" var="color"/>
@@ -50,32 +50,32 @@
                                 <form:option value="" label="-"/>
                                 <form:options items="${colors}" itemValue="value" itemLabel="displayName"/>
                             </form:select>
-                            <span class="js-error-color hidden"></span>
+                            <span class="js-error-color"></span>
                         </div>
                     </div>
                     <div class="field half first">
                         <spring:message code="form.field.price.from" text="Price from" var="priceFrom"/>
                         <form:label path="priceFrom">${priceFrom}</form:label>
                         <form:input name="priceFrom" path="priceFrom" type="number" placeholder="${priceFrom}"/>
-                        <span class="js--error-priceFrom hidden"></span>
+                        <span class="js-error-priceFrom"></span>
                     </div>
                     <div class="field half">
                         <spring:message code="form.field.price.to" text="Price to" var="priceTo"/>
                         <form:label path="priceTo">${priceTo}</form:label>
                         <form:input name="priceTo" path="priceTo" type="number" placeholder="${priceTo}"/>
-                        <span class="js-error-priceTo hidden"></span>
+                        <span class="js-error-priceTo"></span>
                     </div>
                     <div class="field half first">
                         <spring:message code="form.field.height.from" text="Height from" var="heightFrom"/>
                         <form:label path="heightFrom">${heightFrom}</form:label>
                         <form:input name="heightFrom" path="heightFrom" type="number" placeholder="${heightFrom}"/>
-                        <span class="js-error-heightFrom hidden"></span>
+                        <span class="js-error-heightFrom"></span>
                     </div>
                     <div class="field half">
                         <spring:message code="form.field.height.to" text="Height to" var="heightTo"/>
                         <form:label path="heightTo">${heightTo}</form:label>
                         <form:input name="heightTo" path="heightTo" type="number" placeholder="${heightTo}"/>
-                        <span class="js-error-heightTo hidden"></span>
+                        <span class="js-error-heightTo"></span>
                     </div>
                     <ul class="actions">
                         <li>

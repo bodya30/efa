@@ -3365,7 +3365,7 @@ input[type=number]::-webkit-outer-spin-button {
 		text-align: right;
 		top: 1em;
 		width: 100%;
-		z-index: 10001;
+		z-index: 1000;
 		padding: 0 1.5em;
 	}
 

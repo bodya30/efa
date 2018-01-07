@@ -9,6 +9,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="resources/css/main.css"/>
+    <link rel="stylesheet" href="resources/css/magnific-popup.css">
 </head>
 
 <body class="subpage">
@@ -112,7 +113,6 @@
 <!-- Scripts -->
 <script src="resources/js/jquery-1.9.1.js"></script>
 <script src="resources/js/jquery-migrate-1.1.0.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.1.0.js"></script>
 <script src="resources/js/jquery.twbsPagination.js"></script>
 <script src="resources/js/jquery.twbsPagination.min.js"></script>
 <script src="resources/js/jquery.scrolly.min.js"></script>
@@ -123,5 +123,6 @@
 <script src="resources/js/formsubmit.js"></script>
 <script src="resources/js/scrolltop.js"></script>
 <script src="resources/js/localization.js"></script>
+<script src="resources/js/jquery.magnific-popup.js"></script>
 </body>
 </html>

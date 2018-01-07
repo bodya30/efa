@@ -15,12 +15,14 @@
                     <th><spring:message code="search.results.table.column.price" text="Price"/></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody class="js-img-popups-parent">
                     <c:forEach items="${pageableData.plants}" var="plant">
                         <tr>
                             <td>
                                 <span class="image left">
-                                    <img src="resources/img/plants/${plant.img}">
+                                    <a href="resources/img/plants/${plant.img}">
+                                        <img src="resources/img/plants/${plant.img}">
+                                    </a>
                                 </span>
                             </td>
                             <td>${plant.name}</td>
@@ -42,4 +44,5 @@
     <input type="hidden" name="pageSize" value="${pageableData.pageSize}"/>
     <input type="hidden" name="pageNumber" value="${pageableData.pageNumber}"/>
     <div class="js-pagination"></div>
+    <script src="resources/js/imgpopup.js"></script>
 </div>

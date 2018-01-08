@@ -1,12 +1,12 @@
-package ua.efa.landscape.service;
+package ua.efa.landscape.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.efa.landscape.dao.PlantDao;
 import ua.efa.landscape.data.PlantPageableData;
 import ua.efa.landscape.model.Plant;
+import ua.efa.landscape.service.PlantService;
 
-import java.util.List;
 import java.util.Map;
 
 @Service

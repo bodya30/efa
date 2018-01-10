@@ -20,8 +20,8 @@
                         <tr>
                             <td>
                                 <span class="image left">
-                                    <a href="resources/img/plants/${plant.img}">
-                                        <img src="resources/img/plants/${plant.img}">
+                                    <a href="images/${plant.img}">
+                                        <img src="images/${plant.img}">
                                     </a>
                                 </span>
                             </td>

@@ -14,6 +14,7 @@
                 <value>classpath:database.properties</value>
             </list>
         </property>
+        <property name="localOverride" value="true"/>
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

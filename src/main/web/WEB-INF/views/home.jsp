@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="resources/css/main.css"/>
     <link rel="stylesheet" href="resources/css/magnific-popup.css">
+    <link rel="shortcut icon" type="image/x-icon" href="resources/favicon.ico">
 </head>
 
 <body class="subpage">

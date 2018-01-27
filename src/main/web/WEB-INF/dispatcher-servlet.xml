@@ -24,7 +24,8 @@
           class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <property name="defaultLocale" value="en"/>
         <property name="cookieName" value="language"/>
-        <property name="cookieMaxAge" value="3600"/>
+        <!--4 weeks maximum-->
+        <property name="cookieMaxAge" value="2419200"/>
     </bean>
 
     <mvc:interceptors>
@@ -32,6 +33,10 @@
               class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
             <property name="paramName" value="lang"/>
         </bean>
+        <mvc:interceptor>
+            <mvc:mapping path="/login-page/**"/>
+            <bean id="loginPageInterceptor" class="ua.efa.landscape.interceptor.LoginPageInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

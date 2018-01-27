@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="custom" tagdir="/WEB-INF/tags" %>
 
 <!DOCTYPE HTML>
 <head>
@@ -17,10 +20,7 @@
     <div class="logo">
         <a href="#">Plants Search</a>
     </div>
-    <div class="locale">
-        <input type="hidden" id="currentLang" value="${pageContext.response.locale}">
-        <a href="?lang=en" class="js-lang-en">EN</a>|<a href="?lang=ua" class="js-lang-ua">UA</a>
-    </div>
+    <custom:headerRightContent/>
 </header>
 <!-- Content -->
 <!--

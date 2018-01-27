@@ -31,6 +31,11 @@ public class DefaultPlantService implements PlantService {
     }
 
     @Override
+    public void deleteAllPlants() {
+        plantDao.deleteAllPlants();
+    }
+
+    @Override
     public void insertPlant(Plant plant) {
         plantDao.insertPlant(plant);
     }

@@ -1687,7 +1687,7 @@ input[type=number]::-webkit-outer-spin-button {
 	}
 
 	p {
-		margin: 0 0 2em 0;
+		margin: 1em 0;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -1850,6 +1850,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* Box */
 
+	.text-center{
+		text-align: center;
+	}
+
 	.box {
 		background: rgba(0, 0, 0, 0.5);
 		border-radius: 4px;
@@ -1930,6 +1934,17 @@ input[type=number]::-webkit-outer-spin-button {
 		text-decoration: none;
 		white-space: nowrap;
 		text-transform: uppercase;
+	}
+
+	.login-button, input[type="checkbox"].login-button:checked + label:before{
+		text-transform: none !important;
+		background-color: #162e30 !important;
+		border: solid #756b62 1px !important;
+	}
+
+	.login-button{
+		padding: 0 1em !important;
+		font-weight: 500 !important;
 	}
 
 		input[type="submit"].icon,
@@ -2768,6 +2783,14 @@ input[type=number]::-webkit-outer-spin-button {
 		margin-top: -0.8em;
 	}
 
+	.box header i{
+		color: white;
+	}
+
+	.box header h3{
+		margin: 0 !important;
+	}
+
 	header h4 + p,
 	header h5 + p,
 	header h6 + p {
@@ -3306,7 +3329,16 @@ input[type=number]::-webkit-outer-spin-button {
 		padding-top: 3.125em;
 	}
 
-	@-moz-keyframes reveal-header {
+	.login-bg {
+		background: url(../img/banner1.jpg) no-repeat center center fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+
+@-moz-keyframes reveal-header {
 		0% {
 			top: -4em;
 			opacity: 0;
@@ -3854,15 +3886,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 		#post .button.icon {
 			padding: 0;
-			width: 3em;
 			height: 3em;
 			line-height: 3em;
-			border-radius: 100%;
 			text-align: center;
 		}
 
 			#post .button.icon:before {
-				margin-right: 0;
 				color: #FFF;
 			}
 
@@ -4474,6 +4503,11 @@ input[type=number]::-webkit-outer-spin-button {
 	display:none;
 }
 
+.locale{
+	display: inline-block;
+	margin-left: 0.5em;
+}
+
 .locale a{
 	color: #FFF;
 	text-decoration: none;
@@ -4481,4 +4515,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 .locale a:active{
 	font-weight: bold;
+}
+
+.logout-button{
+	background-color: #4fba6f !important;
+}
+
+.logout-form{
+	display: inline-block;
+	margin: 0;
+}
+
+.error-img{
+	width: 50% !important;
 }

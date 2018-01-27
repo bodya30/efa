@@ -16,6 +16,20 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>
+            ua.efa.landscape.filter.ConfigurableDelegatingFilterProxy
+        </filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <!--Enable isAuthenticated and isAnonymous on error pages. Default it is REQUEST only-->
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
@@ -26,6 +40,11 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath:application-context.xml
+            classpath:spring-security-context.xml
         </param-value>
     </context-param>
+    
+    <error-page>
+        <location>/error</location>
+    </error-page>
 </web-app>

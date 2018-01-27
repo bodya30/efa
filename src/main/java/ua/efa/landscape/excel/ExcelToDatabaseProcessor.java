@@ -42,6 +42,7 @@ public class ExcelToDatabaseProcessor implements ApplicationListener<ContextRefr
 
     private void transferExcelToDatabase() throws IOException {
         if (!isExcelToDbTransfered) {
+            plantService.deleteAllPlants();
             doDataTransfer();
             isExcelToDbTransfered = true;
         }

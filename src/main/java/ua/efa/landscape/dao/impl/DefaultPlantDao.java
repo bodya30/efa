@@ -10,6 +10,7 @@ import ua.efa.landscape.model.Plant;
 import ua.efa.landscape.model.Plant_;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaDelete;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
@@ -65,6 +66,14 @@ public class DefaultPlantDao implements PlantDao {
         Session session = getCurrentSession();
         Plant plant = session.load(Plant.class, id);
         session.delete(plant);
+    }
+
+    @Override
+    public void deleteAllPlants() {
+        Session session = getCurrentSession();
+        CriteriaDelete<Plant> criteriaDelete = session.getCriteriaBuilder().createCriteriaDelete(Plant.class);
+        criteriaDelete.from(Plant.class);
+        session.createQuery(criteriaDelete).executeUpdate();
     }
 
     @Override

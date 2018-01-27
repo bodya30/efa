@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns="http://www.springframework.org/schema/security"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+    <beans:bean id="authenticationFailureHandler"
+                class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+        <beans:property name="exceptionMappings">
+            <beans:props>
+                <beans:prop key="org.springframework.security.authentication.BadCredentialsException">
+                    /login-page/login.bad.credentials/
+                </beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="configurableDelegatingFilterProxy" class="ua.efa.landscape.filter.ConfigurableDelegatingFilterProxy"/>
+
+    <http use-expressions="true">
+        <intercept-url pattern="/resources/**"  access="permitAll()"/>
+        <intercept-url pattern="/login-page/**" access="permitAll()"/>
+        <intercept-url pattern="/logout" access="isAuthenticated()"/>
+        <intercept-url pattern="/**" access="isAuthenticated()"/>
+
+        <form-login login-page="/login-page"
+                    default-target-url="/"
+                    authentication-failure-handler-ref="authenticationFailureHandler"
+                    username-parameter="login"
+                    password-parameter="password"/>
+        <logout logout-success-url="/login-page"
+                logout-url="/logout"
+                delete-cookies="JSESSIONID"/>
+        <!--4 weeks maximum-->
+        <remember-me key="plantRemMe" token-validity-seconds="2419200"/>
+
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+                               users-by-username-query="SELECT login, password, 1 FROM user WHERE login = ?"
+                               authorities-by-username-query="SELECT login, name FROM authority as a JOIN user_authority as ua ON a.id = ua.auhtority_id
+                                JOIN user as u ON ua.user_id = u.id WHERE login = ?"/>
+            <password-encoder hash="bcrypt"/>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

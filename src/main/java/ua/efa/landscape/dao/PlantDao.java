@@ -14,6 +14,8 @@ public interface PlantDao {
 
     void deletePlantById(int id);
 
+    void deleteAllPlants();
+
     void insertPlant(Plant plant);
 
     void updatePlant(Plant plant);

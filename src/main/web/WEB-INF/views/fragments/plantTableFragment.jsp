@@ -5,14 +5,19 @@
 <div class="table-wrapper">
     <c:choose>
         <c:when test="${not empty pageableData.plants}">
+            <spring:message code="search.results.table.column.image" text="Image" var="image"/>
+            <spring:message code="search.results.table.column.name" text="Name" var="name"/>
+            <spring:message code="search.results.table.column.color" text="Color" var="color"/>
+            <spring:message code="search.results.table.column.height" text="Height, m" var="height"/>
+            <spring:message code="search.results.table.column.price" text="Price" var="price"/>
             <table>
                 <thead>
                 <tr>
-                    <th><spring:message code="search.results.table.column.image" text="Image"/></th>
-                    <th><spring:message code="search.results.table.column.name" text="Name"/></th>
-                    <th><spring:message code="search.results.table.column.color" text="Color"/></th>
-                    <th><spring:message code="search.results.table.column.height" text="Height, m"/></th>
-                    <th><spring:message code="search.results.table.column.price" text="Price"/></th>
+                    <th>${image}</th>
+                    <th>${name}</th>
+                    <th>${color}</th>
+                    <th>${height}</th>
+                    <th>${price}</th>
                 </tr>
                 </thead>
                 <tbody class="js-img-popups-parent">
@@ -25,10 +30,10 @@
                                     </a>
                                 </span>
                             </td>
-                            <td>${plant.name}</td>
-                            <td>${plant.color.displayName}</td>
-                            <td>${plant.height}</td>
-                            <td>${plant.price}</td>
+                            <td data-label="${name}">${plant.name}</td>
+                            <td data-label="${color}">${plant.color.displayName}</td>
+                            <td data-label="${height}">${plant.height}</td>
+                            <td data-label="${price}">${plant.price}</td>
                         </tr>
                     </c:forEach>
                 </tbody>
@@ -43,6 +48,6 @@
     <input type="hidden" name="totalPageCount" value="${pageableData.totalPageCount}"/>
     <input type="hidden" name="pageSize" value="${pageableData.pageSize}"/>
     <input type="hidden" name="pageNumber" value="${pageableData.pageNumber}"/>
-    <div class="js-pagination"></div>
+    <div class="js-pagination pagination"></div>
     <script src="resources/js/imgpopup.js"></script>
 </div>

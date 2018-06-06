@@ -2560,7 +2560,7 @@ input[type=number]::-webkit-outer-spin-button {
 		}
 
 		.image.left img, .image.right img {
-			width: 70%;
+			width: 60%;
 			margin: auto;
 		}
 
@@ -2829,7 +2829,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 	table th,
 	table td {
-		padding: .625em;
+		padding: .3em;
 		text-align: center;
 		vertical-align: middle;
 	}

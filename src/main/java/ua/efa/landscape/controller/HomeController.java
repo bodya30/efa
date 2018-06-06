@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,15 +33,21 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Controller
 @RequestMapping("/")
+@ManagedResource(objectName = "plantDB:name=HomeController")
 public class HomeController {
-    @Value("${db.pagination.size}")
-    private int pageSize;
+
+    //static volatile because of JMX
+    private static volatile int pageSize;
 
     @Autowired
     private PlantService plantService;
 
     @Autowired
     private MessageSource messageSource;
+
+    public HomeController(@Value("${db.pagination.size}") int pSize) {
+        pageSize = pSize;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String showHomePage(Model model) {
@@ -63,8 +71,8 @@ public class HomeController {
         return respponse;
     }
 
-    private String getLocalizedErrorMessage(FieldError error, Locale locale){
-        return  messageSource.getMessage(error.getDefaultMessage(), null, locale);
+    private String getLocalizedErrorMessage(FieldError error, Locale locale) {
+        return messageSource.getMessage(error.getDefaultMessage(), null, locale);
     }
 
     @RequestMapping(value = "/submit/form", method = RequestMethod.POST)
@@ -97,4 +105,13 @@ public class HomeController {
         return params;
     }
 
+    @ManagedAttribute
+    public int getPageSize() {
+        return pageSize;
+    }
+
+    @ManagedAttribute
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
 }

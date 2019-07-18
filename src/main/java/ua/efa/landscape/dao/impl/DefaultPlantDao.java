@@ -3,6 +3,8 @@ package ua.efa.landscape.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import ua.efa.landscape.dao.PlantDao;
 import ua.efa.landscape.data.PlantPageableData;
@@ -40,6 +42,7 @@ public class DefaultPlantDao implements PlantDao {
     }
 
     @Override
+    @Cacheable(value = "plantCache", key = "#pageableData.hashCode()")
     public PlantPageableData getAllPlantsPaginated(PlantPageableData pageableData) {
         int pageSize = pageableData.getPageSize();
         Session session = getCurrentSession();
@@ -69,6 +72,7 @@ public class DefaultPlantDao implements PlantDao {
     }
 
     @Override
+    @CacheEvict(value = "plantCache", allEntries = true)
     public void deleteAllPlants() {
         Session session = getCurrentSession();
         CriteriaDelete<Plant> criteriaDelete = session.getCriteriaBuilder().createCriteriaDelete(Plant.class);
@@ -87,7 +91,9 @@ public class DefaultPlantDao implements PlantDao {
     }
 
     @Override
+    @Cacheable(value = "plantCache", key = "{#params.hashCode(), #pageableData.hashCode()}")
     public PlantPageableData getPlantsByCriteriasPaginated(Map<String, Object> params, PlantPageableData pageableData) {
+        System.out.println("without Cache");
         int pageSize = pageableData.getPageSize();
         Session session = getCurrentSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
